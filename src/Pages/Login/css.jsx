@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
 export const LoginStyle = styled.div`
     .form-control {
         padding: 0.5em;
@@ -8,38 +7,36 @@ export const LoginStyle = styled.div`
         font-size: 1em;
     }
     .btn-login {
-        color: #ffffff;
-        background: linear-gradient(169.52deg, #fd9843 7.81%, #e35d6a 95.08%);
+        background: #007dff;
         border-radius: 3em;
         border: none;
         padding: 0.4em 4em;
         transition: all 0.2s ease;
-        opacity: 0.9;
-    }
-    .btn-login:hover {
-        color: #fff;
-        transform: scale(1.025);
         opacity: 1;
     }
-    .login-logo {
-        font-style: normal;
-        font-size: 4em;
-        letter-spacing: 0.4em;
-        background: linear-gradient(180deg, #343434 37.5%, rgba(0, 0, 0, 0.36) 81.77%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.25);
-        text-align: center;
+    .btn-login:hover {
+        transform: scale(1.025);
+        opacity: 0.8;
     }
-    .login-title {
-        font-weight: 500;
+    .login-logo {
+        color: #00bafd;
+        text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.25);
         font-size: 3.8em;
-        background: linear-gradient(169.52deg, #fd9843 7.81%, #e35d6a 95.08%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-align: center;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+    }
+    .bg-primary {
+        background: linear-gradient(
+            180deg,
+            rgba(47, 81, 169, 1) 0%,
+            rgba(5, 26, 90, 1) 52%,
+            rgba(0, 5, 59, 1) 100%
+        );
+    }
+    .color-link {
+        color: #00bafd;
+    }
+    .line-custom {
+        width: 36%;
     }
 `;

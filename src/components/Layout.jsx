@@ -1,3 +1,8 @@
-export const Layout = () => {
-    return <>Layout</>;
+export const Layout = ({ children }) => {
+    return (
+        <>
+            <>Layout</>
+            <main>{children}</main>
+        </>
+    );
 };

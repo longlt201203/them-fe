@@ -24,14 +24,14 @@ const RouterComponent = () => {
         {
             path: '/',
             exact: true,
-            element: <RequireAuth allowedRoles={(ROLES.User, ROLES.Admin)} />,
+            element: <Home />,
             children: [
                 {
                     exact: true,
                     path: 'home',
                     loader: Loading,
                     element: <Home />,
-                    children: [{ path: 'homeChild', loader: Loading, element: <HomeChild /> }],
+                    children: [{ path: 'homechild', loader: Loading, element: <HomeChild /> }],
                 },
             ],
         },
