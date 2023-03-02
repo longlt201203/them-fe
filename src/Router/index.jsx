@@ -1,14 +1,20 @@
 import { Navigate, createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import ErrorPage from '../Pages/404Page';
+import Admin from '../Pages/AdminPage';
 import Home from '../Pages/Home';
 import HomeChild from '../Pages/HomeChild/HomeChild';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register.jsx';
 import UserProfile from '../Pages/UserProfile';
 import Loading from '../components/Loading';
+import RequireAuth from '../components/RequiredAuth';
 import RoleAccess from './RoleAccess';
 
+const ROLES = {
+    User: 2001,
+    Admin: 1984,
+};
 const RouterComponent = () => {
     const router = createBrowserRouter([
         { exact: true, path: '/', element: <Navigate to="home" /> },
@@ -18,7 +24,7 @@ const RouterComponent = () => {
         {
             path: '/',
             exact: true,
-            element: <RoleAccess role={['user', 'customer']} />,
+            element: <RequireAuth allowedRoles={(ROLES.User, ROLES.Admin)} />,
             children: [
                 {
                     exact: true,
@@ -31,13 +37,25 @@ const RouterComponent = () => {
         },
         {
             exact: true,
-            element: <RoleAccess role={['user']} />,
+            element: <RequireAuth allowedRoles={ROLES.User} />,
             children: [
                 {
                     exact: true,
                     path: 'user',
                     loader: Loading,
                     element: <UserProfile />,
+                },
+            ],
+        },
+        {
+            exact: true,
+            element: <RequireAuth allowedRoles={ROLES.Admin} />,
+            children: [
+                {
+                    exact: true,
+                    path: 'admin',
+                    loader: Loading,
+                    element: <Admin />,
                 },
             ],
         },
