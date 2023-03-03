@@ -1,12 +1,6 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-}
-.App {
-    /* display: flex;
-    justify-content: center; */
-    align-items: center;
-    /* margin: 3rem auto; */
-    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
 }
