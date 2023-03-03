@@ -9,5 +9,5 @@ export const SchemaRegister = Yup.object().shape({
     lname: Yup.string().required(),
     zipCode: Yup.string().required(),
     address: Yup.string().required(),
-    terms: Yup.bool().required().oneOf([true], 'Terms must be accepted'),
+    // terms: Yup.bool().required().oneOf([true], 'Terms must be accepted'),
 });

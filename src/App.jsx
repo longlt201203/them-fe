@@ -1,15 +1,7 @@
-import { useState } from 'react';
-
-import Register from './pages/Register';
+import RouterComponent from './Router';
 
 function App() {
-    const [count, setCount] = useState(0);
-
-    return (
-        <div className="App">
-            <Register />
-        </div>
-    );
+    return <RouterComponent />;
 }
 
 export default App;

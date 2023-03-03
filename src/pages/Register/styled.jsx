@@ -5,19 +5,18 @@ export const DivStyled = styled.div`
     background-color: aqua;
 `;
 export const TitleStyled = styled.div`
-    font-family: 'Quicksand';
+    font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 800;
     font-size: 48px;
-    line-height: 60px;
+    line-height: 59px;
     /* identical to box height */
 
-    /* letter-spacing: 20px; */
-    background: linear-gradient(180deg, #343434 37.5%, rgba(0, 0, 0, 0.36) 81.77%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+    letter-spacing: 2px;
+
+    /* Color template/Color text */
+
+    color: #00bafd;
 
     text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.25);
 `;
@@ -25,15 +24,27 @@ export const SubtitleStyled = styled.div`
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 500;
-    font-size: 40px;
-    line-height: 50px;
+    font-size: 32px;
+    line-height: 40px;
     /* identical to box height */
 
-    /* Color Fill/Primary */
+    text-align: center;
 
-    background: linear-gradient(169.52deg, #fd9843 7.81%, #e35d6a 95.08%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+    /* Color template/Text */
+
+    color: #ffffff;
+`;
+export const BackgroundTmp = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 30px;
+    width: 100%;
+    min-height: 100vh;
+    background: ${({ url }) => (url ? `url(${url})` : null)};
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 `;
