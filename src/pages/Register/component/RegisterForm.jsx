@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Formik } from 'formik';
 import { Form } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import ButtonStyled from '../../../components/Button';
 import FormControl from '../../../components/Formik/FormControl';
@@ -23,12 +24,20 @@ const RegisterForm = ({ setErr }) => {
     const handleBackStep = () => {
         setStep(step - 1);
     };
-    const onSubmit = (value) => {
+    const onSubmit = (value, { setFieldError }) => {
         console.log(value);
+
         authApi.register(value).then((response) => {
             console.log(response);
             if (response.data.status === 400) {
                 setErr(response.data.err);
+                response.data.err.map((el) => {
+                    setFieldError(el.at, el.message);
+                });
+            }
+
+            if (response.data.status === 200) {
+                console.log(response.data.message);
             }
         });
     };
@@ -195,12 +204,17 @@ const RegisterForm = ({ setErr }) => {
                                             type="button"
                                             onClick={handleBackStep}
                                         >
-                                            Next
+                                            Back
                                         </ButtonStyled>
                                         <ButtonStyled type="submit" disabled={!isStep2Valid}>
-                                            Submit
+                                            Done
                                         </ButtonStyled>
                                     </Stack>
+                                    <div className="text-white d-flex flex-row justify-content-around">
+                                        <hr className="hr w-25 hr-blurry" />
+                                        <span>OR</span>
+                                        <hr className="hr w-25 hr-blurry" />
+                                    </div>
                                 </>
                             )}
                         </Form>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import LoginBg from '../../assets/Background/LoginBg.png';
+import GoogleSignInButton from '../../components/GGbtn/GoogleBtn';
 import ScreenWrapper from '../../components/Wrapper';
 import RegisterForm from './component/RegisterForm';
 import { TitleStyled, SubtitleStyled, BackgroundTmp } from './styled';
@@ -19,13 +20,11 @@ const Register = () => {
                         {/* Register title */}
                         <TitleStyled className="">Thèm</TitleStyled>
                         <SubtitleStyled> Register</SubtitleStyled>
-
-                        {err?.map((item, id) => (
-                            <div key={id}> {item.message}</div>
-                        ))}
                     </div>
 
                     <RegisterForm setErr={setErr} />
+
+                    <GoogleSignInButton className="mx-auto" />
                 </Stack>
             </ScreenWrapper>
         </BackgroundTmp>
