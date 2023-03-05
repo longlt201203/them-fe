@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
 export const LoginStyle = styled.div`
+    width: 100%;
+    min-height: 100vh;
+    background: ${({ url }) => (url ? `url(${url})` : null)};
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     .form-control {
         padding: 0.5em;
         width: 100%;

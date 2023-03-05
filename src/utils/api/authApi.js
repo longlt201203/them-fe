@@ -56,6 +56,37 @@ const authApi = {
                 return err;
             });
     },
+
+    SendEmail: async (data) => {
+        const endpoint = `/auth/request-reset-password`;
+        // eslint-disable-next-line no-return-await
+
+        return await post(endpoint, data, {}, {})
+            .then((res) => {
+                // if (res.data.code !== 200) console.log(res.response);
+
+                return res;
+            })
+            .catch((err) => {
+                console.log(err);
+                return err;
+            });
+    },
+    ResetPassword: async (data) => {
+        const endpoint = `/auth/reset-password`;
+        // eslint-disable-next-line no-return-await
+
+        return await post(endpoint, data, {}, {})
+            .then((res) => {
+                // if (res.data.code !== 200) console.log(res.response);
+
+                return res;
+            })
+            .catch((err) => {
+                console.log(err);
+                return err;
+            });
+    },
 };
 
 export default authApi;

@@ -23,8 +23,9 @@ const Register = () => {
                     </div>
 
                     <RegisterForm setErr={setErr} />
-
-                    <GoogleSignInButton className="mx-auto" />
+                    <div className="mx-auto">
+                        <GoogleSignInButton />
+                    </div>
                 </Stack>
             </ScreenWrapper>
         </BackgroundTmp>

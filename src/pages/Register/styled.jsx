@@ -36,9 +36,9 @@ export const SubtitleStyled = styled.div`
 `;
 export const BackgroundTmp = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 
     padding: 30px;
     width: 100%;
