@@ -3,60 +3,45 @@ import { useRef, useState, useEffect } from 'react';
 import { Button, Form, FormGroup } from 'react-bootstrap';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-import useAuth from '../../hooks/useAuth';
-import axios from '../../utils/api/axios';
+import GoogleSignInButton from '../../components/GoogleLogin';
+import Localstorage from '../../utils/Localstorage';
+import authApi from '../../utils/api/authApi';
 import LineBreak from './LineBreak';
 
 const LoginForm = () => {
-    const { setAuth } = useAuth();
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
-    const userRef = useRef();
-    const errRef = useRef();
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
+    const [checked, setChecked] = useState(false);
     const [errMsg, setErrMsg] = useState('');
-    useEffect(() => {
-        userRef.current.focus();
-    }, []);
-    useEffect(() => {
-        setErrMsg('');
-    }, [user, pwd]);
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await axios.post(LOGIN_URL, JSON.stringify({ user, pwd }), {
-                headers: { 'Content-Type': 'application/json' },
-                withCredentials: true,
-            });
-            console.log(JSON.stringify(response?.data));
-            const accessToken = response?.data?.accessToken;
-            const roles = response?.data?.roles;
-            setAuth({ user, pwd, roles, accessToken });
-            setUser('');
-            setPwd('');
-            navigate(from, { replace: true });
-        } catch (err) {
-            if (!err?.response) {
-                setErrMsg('No Server Response');
-            } else if (err.response?.status === 400) {
-                setErrMsg('Missing Useraccount or Password');
-            } else if (err.response?.status === 401) {
-                setErrMsg('Unauthorized');
-            } else {
-                setErrMsg('Login Failed');
+
+        const formData = {
+            emailOrPhone: user,
+            password: pwd,
+            remember: checked,
+        };
+        console.log(formData);
+        authApi.login(formData).then((res) => {
+            console.log(res);
+            if (res.data.status === 200) {
+                Localstorage.setItem('accessToken', res.data.data.access_token);
+                Localstorage.setItem('refreshToken', res.data.data.refresh_token);
+                navigate('/home');
             }
-            errRef.current.focus();
-        }
+            if (res.data.status === 400) {
+                setErrMsg(res.data.err);
+            }
+        });
     };
+
     return (
         <Form className="need-validation" onSubmit={handleSubmit}>
             <Form.Group className="was-validated mb-3" controlId="useraccount">
                 <Form.Label>Email or Phone Number</Form.Label>
                 <Form.Control
-                    ref={userRef}
-                    type="email"
+                    type="text"
                     onChange={(e) => setUser(e.target.value)}
                     value={user}
                     placeholder="Enter email or phone number"
@@ -74,25 +59,28 @@ const LoginForm = () => {
                     autoComplete="on"
                 />
             </Form.Group>
-            <p
-                ref={errRef}
-                className={errMsg ? ' text-danger errmsg' : 'offscreen'}
-                aria-live="assertive"
-            >
+            <p className={errMsg ? ' text-danger errmsg' : 'offscreen'} aria-live="assertive">
                 {errMsg}
             </p>
             <Form.Group className="mb-3 d-flex justify-content-end" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Remember me" />
+                <Form.Check
+                    type="checkbox"
+                    label="Remember me"
+                    checked={checked}
+                    onChange={() => setChecked(!checked)}
+                />
             </Form.Group>
             <Button className="w-100 mt-2 mb-3 text-light" variant="login" type="Login">
                 Login
             </Button>
             <LineBreak />
-            <p className="mb-3 text-center">Sign in with Google</p>
+            <div className="d-flex justify-content-center justify-content-center mb-3">
+                <GoogleSignInButton />
+            </div>
             <div className="mb-3 text-center">
                 Forget password?{' '}
-                <Link className="color-link" to="/resetpassword">
-                    Reset password
+                <Link className="color-link" to="/forgotPassword">
+                    Forgot password
                 </Link>
             </div>
             <div className="mb-3 text-center">

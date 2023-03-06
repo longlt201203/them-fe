@@ -1,24 +1,21 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import Localstorage from '../utils/Localstorage';
-import authApi from '../utils/api/authApi';
+import { GOOGLE_CLIENT_ID } from '../../config';
 
 function GoogleSignInButton() {
     const [gapiLoaded, setGapiLoaded] = useState(false);
+
     const refBtn = useRef();
     const navigate = useNavigate();
     const handleCredentialResponse = (response) => {
         console.log(`Encoded JWT ID token: ${response.credential}`);
-        authApi.loginGG(response.credential).then((response) => {
-            console.log(response);
-            Localstorage.setItem('accessToken', response.data.data.access_token);
-            Localstorage.setItem('refreshToken', response.data.data.refresh_token);
-            navigate('/home', { state: response.credential });
-        });
-        // authApi.register(response.credential).then((response) => {
-        //     console.log(response);x
+        // Localstorage.setItem('credential', response.credential);
+        // authApi.login(response.credential).then((response) => {
+        //     console.log(response);
+        //     Localstorage.setItem('token', response.data.data);
+        //     navigate('/register');
         // });
     };
 
@@ -30,8 +27,7 @@ function GoogleSignInButton() {
         setGapiLoaded(true);
         script.onload = () => {
             google.accounts.id.initialize({
-                client_id:
-                    '226640533209-sfbj22gqtan2g2v5p5tj0ct9tnctjqi0.apps.googleusercontent.com',
+                client_id: `${GOOGLE_CLIENT_ID}`,
                 callback: handleCredentialResponse,
             });
             google.accounts.id.renderButton(

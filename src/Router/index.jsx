@@ -5,10 +5,13 @@ import Admin from '../Pages/AdminPage';
 import Home from '../Pages/Home';
 import HomeChild from '../Pages/HomeChild/HomeChild';
 import Login from '../Pages/Login';
-import Register from '../Pages/Register.jsx';
+import Register from '../Pages/Register';
 import UserProfile from '../Pages/UserProfile';
 import Loading from '../components/Loading';
 import RequireAuth from '../components/RequiredAuth';
+import ForgotPassword from '../pages/ForgotPassword';
+import ResetPassword from '../pages/ResetPassword';
+import Verification from '../pages/VerficationPage';
 import RoleAccess from './RoleAccess';
 
 const ROLES = {
@@ -20,6 +23,10 @@ const RouterComponent = () => {
         { exact: true, path: '/', element: <Navigate to="home" /> },
         { exact: true, path: 'login', loader: Loading, element: <Login /> },
         { exact: true, path: 'register', loader: Loading, element: <Register /> },
+        { exact: true, path: 'forgotPassword', element: <ForgotPassword /> },
+        { exact: true, path: 'resetPassword', element: <ResetPassword /> },
+        { exact: true, path: 'verification', element: <Verification /> },
+
         { exact: true, path: 'loading', loader: Loading, element: <Loading /> },
         {
             path: '/',
