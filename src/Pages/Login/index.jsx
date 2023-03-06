@@ -4,7 +4,6 @@ import ScreenWrapper from '../../components/Wrapper';
 import LoginForm from './LoginForm';
 import { LoginStyle } from './css';
 
-const LOGIN_URL = '';
 export default function Login() {
     // <img src={LoginBg} alt="Left" className="d-sm-block d-none w-50"></img>
     return (

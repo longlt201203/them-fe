@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -11,14 +11,15 @@ function GoogleSignInButton() {
     const navigate = useNavigate();
     const handleCredentialResponse = (response) => {
         console.log(`Encoded JWT ID token: ${response.credential}`);
-        authApi.login(response.credential).then((response) => {
+        authApi.loginGG(response.credential).then((response) => {
             console.log(response);
-            Localstorage.setItem('token', response.data.data);
-            navigate('/');
+            Localstorage.setItem('accessToken', response.data.data.access_token);
+            Localstorage.setItem('refreshToken', response.data.data.refresh_token);
+            navigate('/home', { state: response.credential });
         });
-        authApi.register(response.credential).then((response) => {
-            console.log(response);
-        });
+        // authApi.register(response.credential).then((response) => {
+        //     console.log(response);x
+        // });
     };
 
     useEffect(() => {
@@ -30,7 +31,7 @@ function GoogleSignInButton() {
         script.onload = () => {
             google.accounts.id.initialize({
                 client_id:
-                    '970833900937-v2ssoqdoticb9em0hl48fdpe2ebg2n81.apps.googleusercontent.com',
+                    '226640533209-sfbj22gqtan2g2v5p5tj0ct9tnctjqi0.apps.googleusercontent.com',
                 callback: handleCredentialResponse,
             });
             google.accounts.id.renderButton(

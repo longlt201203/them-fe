@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import ButtonStyled from '../../../components/Button';
 import FormControl from '../../../components/Formik/FormControl';
+import { toastSuccess } from '../../../components/ToastNotification';
 import authApi from '../../../utils/api/authApi';
 
 import Button from 'react-bootstrap/Button';
@@ -27,13 +28,18 @@ const VerificationForm = ({ action }) => {
 
             if (response.data.status === 200) {
                 console.log(response.data.message);
+                toastSuccess(response.data.message);
             }
         });
     };
     const onSubmit = (value, { setFieldError }) => {
         console.log(value);
-        value.email = location.state.email;
-        authApi.ResetPassword(value).then((response) => {
+
+        const formData = {
+            email: location.state.email,
+            code: value.code,
+        };
+        authApi.CheckCode(formData).then((response) => {
             console.log(response);
             if (response.data.status === 400) {
                 console.log(response.data);
@@ -46,7 +52,9 @@ const VerificationForm = ({ action }) => {
 
             if (response.data.status === 200) {
                 console.log(response.data.message);
-                navigate('/home');
+                console.log(location.state.email);
+                navigate('/resetPassword', { state: location.state.email });
+                toastSuccess(response.data.message);
             }
         });
     };
@@ -57,7 +65,6 @@ const VerificationForm = ({ action }) => {
                 onSubmit={onSubmit}
                 initialValues={{
                     code: '',
-                    newPassword: '',
                 }}
             >
                 {({ handleSubmit, handleChange, handleBlur, values, touched, isValid, errors }) => {
@@ -76,18 +83,6 @@ const VerificationForm = ({ action }) => {
                                     onChange={handleChange}
                                     isInvalid={touched.code && errors.code}
                                     message={errors.code}
-                                />
-                                <FormControl
-                                    control="input"
-                                    type="text"
-                                    placeholder="Please enter your first name..."
-                                    label="New Password"
-                                    controlId="newPassword"
-                                    name="newPassword"
-                                    value={values.newPassword}
-                                    onChange={handleChange}
-                                    isInvalid={touched.newPassword && errors.newPassword}
-                                    message={errors.newPassword}
                                 />
                                 <Stack
                                     direction="horizontal"

@@ -16,7 +16,7 @@ import Stack from 'react-bootstrap/Stack';
 
 const RegisterForm = ({ setErr }) => {
     const [step, setStep] = useState(1);
-
+    const navigate = useNavigate();
     const handleNextStep = () => {
         setStep(step + 1);
     };
@@ -38,6 +38,7 @@ const RegisterForm = ({ setErr }) => {
 
             if (response.data.status === 200) {
                 console.log(response.data.message);
+                navigate('/login');
             }
         });
     };

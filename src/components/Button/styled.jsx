@@ -17,7 +17,6 @@ export const Wrap = styled.span`
 
     .btn-inverted {
         display: flex;
-
         justify-content: center;
         align-items: center;
         padding: 9px 12px;

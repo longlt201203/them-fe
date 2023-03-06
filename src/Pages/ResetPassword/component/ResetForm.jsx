@@ -1,23 +1,45 @@
 import { Formik } from 'formik';
-import { Form } from 'react-router-dom';
+import { Form, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ButtonStyled from '../../../components/Button';
 import FormControl from '../../../components/Formik/FormControl';
+import { toastSuccess, toastError } from '../../../components/ToastNotification';
+import authApi from '../../../utils/api/authApi';
 
 import Stack from 'react-bootstrap/Stack';
 
 const ResetForm = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const onSubmit = (value, { resetForm }) => {
+        const formData = {
+            email: location.state,
+            password: value.password,
+        };
+        authApi.ResetPassword(formData).then((response) => {
+            console.log(response);
+            if (response.data.status === 400) {
+                console.log(response.data);
+                toastError(response.data.err);
+                resetForm();
+            }
+
+            if (response.data.status === 200) {
+                console.log(response.data.message);
+                toastSuccess(response.data.message);
+                navigate('/login');
+            }
+        });
+    };
     return (
         <>
             <Formik
                 // validationSchema={SchemaRegister}
-                // onSubmit={onSubmit}
+                onSubmit={onSubmit}
                 initialValues={{
                     password: '',
                     confirmPassword: '',
-
-                    // terms: false,
                 }}
             >
                 {({ handleSubmit, handleChange, handleBlur, values, touched, isValid, errors }) => {
