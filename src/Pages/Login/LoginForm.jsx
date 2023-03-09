@@ -12,7 +12,7 @@ import LineBreak from './LineBreak';
 
 const phoneMailRegExp =
     /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|([0-9]{10})+$/;
-const pwdRegExp = /^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,})+$/;
+const pwdRegExp = /^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,})+$/; //at least 8 char, 1 uppercase letter, 1 lowercase letter, 1 number, 1 special char;
 const schema = yup.object().shape({
     user: yup
         .string()
