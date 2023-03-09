@@ -22,18 +22,18 @@ const EditAccount = () => {
         };
         selectedFiles.forEach((file) => reader.readAsDataURL(file));
     }
-
+    console.log(data?.data.data.avt);
     return (
         <div>
             <BackgroundUser url={Placeholder} className="position-relative mb-5">
                 <ALignAvatar>
-                    {!ava ? (
+                    {ava && !data?.data.data.avt ? (
                         <AvaUnknown className="rounded-circle position-absolute top-100 start-50 translate-middle">
                             <i className="bi bi-camera"></i>
                         </AvaUnknown>
                     ) : (
                         <img
-                            src={ava ? ava : `${localFileApi.getImg(data?.data.data.avt)}`}
+                            src={!ava ? `${localFileApi.getImg(data?.data.data.avt)}` : ava}
                             className="rounded-circle position-absolute top-100 start-50 translate-middle"
                             alt="..."
                             width="100"

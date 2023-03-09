@@ -7,8 +7,15 @@ export default function Home() {
     return (
         <>
             <div>This is Home Page</div>
-            <ButtonStyled onClick={() => navigate('/edit_account')}>EditAccount</ButtonStyled>
-            <ButtonStyled onClick={() => navigate('/login')}>Log Out</ButtonStyled>
+            <ButtonStyled className="mb-3" onClick={() => navigate('/login')}>
+                Login
+            </ButtonStyled>
+            <ButtonStyled className="mb-3" onClick={() => navigate('/edit_account')}>
+                EditAccount
+            </ButtonStyled>
+            <ButtonStyled className="mb-3" onClick={() => navigate('/login')}>
+                Log Out
+            </ButtonStyled>
         </>
     );
 }
