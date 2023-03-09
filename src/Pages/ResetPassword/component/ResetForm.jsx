@@ -48,6 +48,7 @@ const ResetForm = () => {
                             <>
                                 {/* Email*/}
                                 <FormControl
+                                    className="text-white"
                                     control="input"
                                     type="password"
                                     placeholder="EX: ABCDEF"
@@ -60,6 +61,7 @@ const ResetForm = () => {
                                     message={errors.password}
                                 />
                                 <FormControl
+                                    className="text-white"
                                     control="input"
                                     type="password"
                                     placeholder="EX: ABCDEF"

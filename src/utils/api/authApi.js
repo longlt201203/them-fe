@@ -38,6 +38,7 @@ const authApi = {
             });
     },
     getInfoFromGG: async (credential) => {
+        console.log(credential);
         const endpoint = `/auth/get-info-from-google/${credential}`;
         return await get(endpoint, {}, {})
             .then((res) => {

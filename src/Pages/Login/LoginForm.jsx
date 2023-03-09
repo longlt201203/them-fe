@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import { Button, Form, FormGroup, Row } from 'react-bootstrap';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import * as yup from 'yup';
@@ -12,7 +12,7 @@ import LineBreak from './LineBreak';
 
 const phoneMailRegExp =
     /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|([0-9]{10})+$/;
-const pwdRegExp = /^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,})+$/; //at least 8 char, 1 uppercase letter, 1 lowercase letter, 1 number, 1 special char;
+const pwdRegExp = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/; //at least 8 char, 1 uppercase letter, 1 lowercase letter, 1 number, 1 special char;
 const schema = yup.object().shape({
     user: yup
         .string()
@@ -25,22 +25,17 @@ const schema = yup.object().shape({
     ),
 });
 const LoginForm = () => {
-    const [user, setUser] = useState('');
-    const [pwd, setPwd] = useState('');
     const [checked, setChecked] = useState(false);
     const [errMsg, setErrMsg] = useState('');
     const navigate = useNavigate();
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
+    const handleSubmit = async (value) => {
         const formData = {
-            emailOrPhone: user,
-            password: pwd,
+            emailOrPhone: value.user,
+            password: value.pwd,
             remember: checked,
         };
-        console.log(formData);
+        console.log(value);
         authApi.login(formData).then((res) => {
-            console.log(res);
             if (res.data.status === 200) {
                 Localstorage.setItem('accessToken', res.data.data.access_token);
                 Localstorage.setItem('refreshToken', res.data.data.refresh_token);
@@ -56,7 +51,7 @@ const LoginForm = () => {
         <Formik
             initialValues={{ user: '', pwd: '' }}
             validationSchema={schema}
-            onSubmit={console.log}
+            onSubmit={handleSubmit}
         >
             {({ handleSubmit, handleChange, handleBlur, values, touched, isValid, errors }) => (
                 <Form noValidate onSubmit={handleSubmit}>
@@ -64,6 +59,7 @@ const LoginForm = () => {
                         <Form.Label>Email or Phone Number</Form.Label>
                         <Form.Control
                             type="text"
+                            as={Field}
                             name="user"
                             onChange={handleChange}
                             value={values.user}

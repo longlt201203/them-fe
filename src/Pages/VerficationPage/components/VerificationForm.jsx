@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Formik } from 'formik';
 import { Form } from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -5,15 +7,18 @@ import styled from 'styled-components';
 
 import ButtonStyled from '../../../components/Button';
 import FormControl from '../../../components/Formik/FormControl';
+import ModalComponent from '../../../components/Modal/Modal';
 import { toastSuccess } from '../../../components/ToastNotification';
 import authApi from '../../../utils/api/authApi';
 
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 
-const VerificationForm = ({ action }) => {
+const VerificationForm = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const [show, setShow] = useState(false);
+    const [message, setMessage] = useState('');
     const Resend = () => {
         authApi.SendEmail({ email: location.state.email }).then((response) => {
             console.log(response);
@@ -42,8 +47,8 @@ const VerificationForm = ({ action }) => {
         authApi.CheckCode(formData).then((response) => {
             console.log(response);
             if (response.data.status === 400) {
-                console.log(response.data);
-                action(response.data.err);
+                setShow(true);
+                setMessage(response.data.err);
                 // setErr(response.data.err);
                 // response.data.err.map((el) => {
                 //     setFieldError(el.at, el.message);
@@ -60,6 +65,8 @@ const VerificationForm = ({ action }) => {
     };
     return (
         <>
+            {' '}
+            <ModalComponent show={show} setShow={setShow} body={message} title={'ERROR'} />
             <Formik
                 // validationSchema={SchemaRegister}
                 onSubmit={onSubmit}

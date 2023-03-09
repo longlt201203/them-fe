@@ -12,6 +12,8 @@ import RequireAuth from '../components/RequiredAuth';
 import EditAccount from '../pages/EditAccount';
 import { loaderInfoUser } from '../pages/EditAccount/components/EditAccountForm';
 import ForgotPassword from '../pages/ForgotPassword';
+import RegisterInfo from '../pages/Register copy';
+import { loaderInfoGG } from '../pages/Register copy';
 import ResetPassword from '../pages/ResetPassword';
 import Verification from '../pages/VerficationPage';
 import RoleAccess from './RoleAccess';
@@ -30,6 +32,7 @@ const RouterComponent = () => {
         { exact: true, path: 'resetPassword', element: <ResetPassword /> },
         { exact: true, path: 'verification', element: <Verification /> },
         { exact: true, path: 'edit_account', loader: loaderInfoUser, element: <EditAccount /> },
+        { exact: true, path: 'registerGoogle', loader: loaderInfoGG, element: <RegisterInfo /> },
 
         { exact: true, path: 'loading', loader: Loading, element: <Loading /> },
         {

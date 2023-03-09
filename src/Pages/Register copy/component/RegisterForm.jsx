@@ -2,29 +2,30 @@ import { useState } from 'react';
 
 import { Formik } from 'formik';
 import { Form } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLoaderData } from 'react-router-dom';
 
 import ButtonStyled from '../../../components/Button';
 import FormControl from '../../../components/Formik/FormControl';
 import ModalComponent from '../../../components/Modal/Modal';
+import { toastSuccess } from '../../../components/ToastNotification';
 import authApi from '../../../utils/api/authApi';
 import { SchemaRegister } from '../schema';
 
-import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 
 // import Form from 'react-bootstrap/Form';
 
-const RegisterForm = () => {
+const RegisterForm = ({ setErr }) => {
+    const data = useLoaderData();
     const [step, setStep] = useState(1);
-
-    const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState('');
+
+    const navigate = useNavigate();
     const handleNextStep = () => {
         setStep(step + 1);
     };
-
+    console.log(data);
     const handleBackStep = () => {
         setStep(step - 1);
     };
@@ -43,6 +44,7 @@ const RegisterForm = () => {
             }
 
             if (response.data.status === 200) {
+                console.log(response.data.message);
                 toastSuccess(response.data.message);
                 navigate('/login');
             }
@@ -56,12 +58,12 @@ const RegisterForm = () => {
                 validationSchema={SchemaRegister}
                 onSubmit={onSubmit}
                 initialValues={{
-                    email: '',
+                    email: data.email,
                     phone: '',
                     password: '',
                     confirmPassword: '',
-                    fname: '',
-                    lname: '',
+                    fname: data.given_name,
+                    lname: data.family_name,
                     zipCode: '',
                     address: '',
                     // terms: false,
@@ -86,6 +88,7 @@ const RegisterForm = () => {
                                         label="Email"
                                         controlId="email"
                                         name="email"
+                                        readOnly={true}
                                         value={values.email}
                                         onChange={handleChange}
                                         isInvalid={touched.email && errors.email}
