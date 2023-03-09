@@ -2,11 +2,20 @@ import { Field } from 'formik';
 
 import Form from 'react-bootstrap/Form';
 
-export const BootstrapInput = ({ label, type, placeholder, controlId, message, name, ...rest }) => {
+export const BootstrapInput = ({
+    label,
+    type,
+    placeholder,
+    controlId,
+    message,
+    name,
+    className,
+    ...rest
+}) => {
     return (
         <>
             <Form.Group className="mb-3" controlId={controlId}>
-                {label && <Form.Label className="text-white">{label}</Form.Label>}
+                {label && <Form.Label className={className}>{label}</Form.Label>}
                 <Form.Control
                     as={Field}
                     type={type}

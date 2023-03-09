@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
+import { GOOGLE_CLIENT_ID } from '../config';
 import Localstorage from '../utils/Localstorage';
 import authApi from '../utils/api/authApi';
 
@@ -30,8 +31,7 @@ function GoogleSignInButton() {
         setGapiLoaded(true);
         script.onload = () => {
             google.accounts.id.initialize({
-                client_id:
-                    '226640533209-sfbj22gqtan2g2v5p5tj0ct9tnctjqi0.apps.googleusercontent.com',
+                client_id: `${GOOGLE_CLIENT_ID}`,
                 callback: handleCredentialResponse,
             });
             google.accounts.id.renderButton(
@@ -49,7 +49,7 @@ function GoogleSignInButton() {
         };
     }, []);
 
-    return gapiLoaded ? <div type="button" ref={refBtn} /> : null;
+    return gapiLoaded ? <button type="button" ref={refBtn}></button> : null;
 }
 
 export default GoogleSignInButton;

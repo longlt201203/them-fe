@@ -78,7 +78,7 @@ const ResetForm = () => {
                                     <ButtonStyled
                                         buttonType="inverted"
                                         type="button"
-                                        // onClick={handleBackStep}
+                                        onClick={() => navigate('/login')}
                                     >
                                         Cancel
                                     </ButtonStyled>

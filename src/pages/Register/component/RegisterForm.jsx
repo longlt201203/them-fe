@@ -72,6 +72,7 @@ const RegisterForm = ({ setErr }) => {
                                 <>
                                     {/* Email*/}
                                     <FormControl
+                                        className="text-white"
                                         control="input"
                                         type="email"
                                         placeholder="Please enter your first name..."
@@ -85,6 +86,7 @@ const RegisterForm = ({ setErr }) => {
                                     />
                                     {/* Phone Number */}
                                     <FormControl
+                                        className="text-white"
                                         control="input"
                                         type="text"
                                         placeholder="Please enter your last name..."
@@ -98,6 +100,7 @@ const RegisterForm = ({ setErr }) => {
                                     />
                                     {/* password */}
                                     <FormControl
+                                        className="text-white"
                                         control="input"
                                         type="password"
                                         placeholder="Please enter your Student ID..."
@@ -111,6 +114,7 @@ const RegisterForm = ({ setErr }) => {
                                     />
                                     {/* Confirm Password */}
                                     <FormControl
+                                        className="text-white"
                                         control="input"
                                         type="password"
                                         placeholder="Your phone number"
@@ -145,6 +149,7 @@ const RegisterForm = ({ setErr }) => {
                                 <>
                                     {/* First Name */}
                                     <FormControl
+                                        className="text-white"
                                         control="input"
                                         type="text"
                                         placeholder="Your phone number"
@@ -158,6 +163,7 @@ const RegisterForm = ({ setErr }) => {
                                     />
                                     {/* Last Name */}
                                     <FormControl
+                                        className="text-white"
                                         control="input"
                                         type="text"
                                         placeholder="Your phone number"
@@ -171,6 +177,7 @@ const RegisterForm = ({ setErr }) => {
                                     />
                                     {/* Zip Code */}
                                     <FormControl
+                                        className="text-white"
                                         control="input"
                                         type="text"
                                         placeholder="Your phone number"
@@ -184,6 +191,7 @@ const RegisterForm = ({ setErr }) => {
                                     />
                                     {/* Address */}
                                     <FormControl
+                                        className="text-white"
                                         control="input"
                                         type="text"
                                         placeholder="Your phone number"
