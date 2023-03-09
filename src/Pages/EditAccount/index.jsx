@@ -13,7 +13,7 @@ const EditAccount = () => {
     const reader = new FileReader();
     const data = useLoaderData();
     const [files, setFiles] = useState();
-    const [ava, setAva] = useState(data?.data.data.avt);
+    const [ava, setAva] = useState();
     function handleChange(e) {
         const selectedFiles = Array.from(e.target.files);
         setFiles(selectedFiles);
@@ -33,7 +33,7 @@ const EditAccount = () => {
                         </AvaUnknown>
                     ) : (
                         <img
-                            src={`${localFileApi.getImg(ava)}`}
+                            src={ava ? ava : `${localFileApi.getImg(data?.data.data.avt)}`}
                             className="rounded-circle position-absolute top-100 start-50 translate-middle"
                             alt="..."
                             width="100"
