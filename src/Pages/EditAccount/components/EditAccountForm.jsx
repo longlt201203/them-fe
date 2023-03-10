@@ -17,6 +17,7 @@ import { FormContainer } from '../styled';
 const EditAccountForm = ({ file, data, cover }) => {
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
+    const [showErr, setShowErr] = useState(false);
     const [message, setMessage] = useState('');
     const onSubmit = async (value, { setFieldError }) => {
         const postData = value;
@@ -42,7 +43,7 @@ const EditAccountForm = ({ file, data, cover }) => {
                 setMessage(res.data.message);
             }
             if (res.data.status === 400) {
-                setShow(true);
+                setShowErr(true);
                 setMessage(res.data.message);
                 res.data.err.map((el) => {
                     setFieldError(el.at, el.message);
@@ -78,6 +79,7 @@ const EditAccountForm = ({ file, data, cover }) => {
                 body={message}
                 title={'SUCCESS'}
             />
+            <ModalComponent show={showErr} setShow={setShowErr} body={message} title={'ERROR'} />
             <Formik
                 validationSchema={SchemaEditAccount}
                 onSubmit={onSubmit}
@@ -182,7 +184,7 @@ const EditAccountForm = ({ file, data, cover }) => {
                                         onClick={() => navigate('/')}
                                         // disabled={!isStep1Valid}
                                     >
-                                        cancel
+                                        Cancel
                                     </ButtonStyled>
                                 </Stack>
                             </>
