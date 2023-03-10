@@ -11,28 +11,49 @@ import userApi from '../../../utils/api/userApi';
 import { SchemaEditAccount } from '../schema/ShemaEditAccount';
 import { FormContainer } from '../styled';
 
-const EditAccountForm = ({ file, data }) => {
-    console.log(data);
+const EditAccountForm = ({ file, data, cover }) => {
     const navigate = useNavigate();
+    console.log(data);
     const onSubmit = async (value, { setFieldError }) => {
-        console.log(value);
-        console.log(file);
-        await localFileApi.postImg(file).then((res) => {
+        const postData = value;
+        const avtUpload = file ? file[0] : null;
+        const coverUpload = cover ? cover[0] : null;
+        console.log(avtUpload);
+        if (avtUpload) {
+            const res = await localFileApi.postImg(avtUpload);
             console.log(res);
+            if (res.data.status == 200) {
+                postData.avt = res.data.data[0].id;
+            }
+        }
+        if (coverUpload) {
+            const res = await localFileApi.postImg(coverUpload);
+            if (res.data.status == 200) {
+                postData.cover = res.data.data[0].id;
+            }
+        }
+        userApi.updateProfile(postData).then((res) => {
             if (res.data.status === 200) {
-                const formatData = {
-                    ...value,
-                    avt: res?.data.data[0].id,
-                };
-                userApi.updateProfile(formatData).then((res) => {
-                    if (res.data.status === 200) {
-                        toastSuccess(res.data.message);
-                    }
-                });
-            } else {
-                toastError(res.data.err);
+                toastSuccess(res.data.message);
             }
         });
+        // const data = {
+        //     avt: file[0] ? file[0] : '',
+        //     cover: cover[0] ? cover[0] : '',
+        // };
+        // await localFileApi.postImg(data).then((res) => {
+        //     console.log(res);
+        //     if (res.data.status === 200) {
+        //         const formatData = {
+        //             ...value,
+        //             avt: res.data.data[0] ? res.data.data[0].id : data.avt,
+        //             cover: res.data.data[1] ? res.data.data[1].id : data.cover,
+        //         };
+
+        //     } else {
+        //         toastError(res.data.err);
+        //     }
+        // });
     };
     // const { data } = useLoaderData();
 

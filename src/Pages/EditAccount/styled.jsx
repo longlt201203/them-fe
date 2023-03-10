@@ -16,7 +16,6 @@ export const ImageUpload = styled.button`
     top: 0.7rem;
     width: 40px;
     left: 55%;
-
     height: 40px;
     border: 2px dashed #d9d9d9;
     cursor: pointer;
@@ -24,6 +23,11 @@ export const ImageUpload = styled.button`
     :hover {
         border: 2px dashed #45ce7c;
     }
+`;
+export const CoverUpload = styled(ImageUpload)`
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
 `;
 export const AvaUnknown = styled.div`
     display: flex;
@@ -39,4 +43,9 @@ export const AvaUnknown = styled.div`
 export const ALignAvatar = styled.div`
     position: relative;
     top: 70px;
+`;
+export const ALignButtonEdit = styled.span`
+    position: relative;
+    top: 15px;
+    left: 263px;
 `;
