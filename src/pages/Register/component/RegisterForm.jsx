@@ -36,7 +36,7 @@ const RegisterForm = () => {
             if (response.data.status === 400) {
                 setShow(true);
                 setMessage(response.data.message);
-                setErr(response.data.err);
+
                 response.data.err.map((el) => {
                     setFieldError(el.at, el.message);
                 });

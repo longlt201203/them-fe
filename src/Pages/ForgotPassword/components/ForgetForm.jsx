@@ -54,7 +54,7 @@ const ForgetForm = () => {
                                 <FormControl
                                     control="input"
                                     type="email"
-                                    placeholder="Please enter your first name..."
+                                    placeholder="Please enter your email..."
                                     label="Email"
                                     controlId="email"
                                     name="email"

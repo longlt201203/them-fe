@@ -19,7 +19,7 @@ const Register = () => {
                         <SubtitleStyled> Register</SubtitleStyled>
                     </div>
 
-                    <RegisterForm setErr={setErr} />
+                    <RegisterForm />
                 </Stack>
             </ScreenWrapper>
         </BackgroundTmp>

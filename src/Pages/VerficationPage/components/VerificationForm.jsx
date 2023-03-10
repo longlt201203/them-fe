@@ -82,7 +82,7 @@ const VerificationForm = () => {
                                 <FormControl
                                     control="input"
                                     type="text"
-                                    placeholder="Please enter your first name..."
+                                    placeholder="Please enter your code..."
                                     label="Code"
                                     controlId="code"
                                     name="code"

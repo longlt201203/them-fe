@@ -6,6 +6,7 @@ import ButtonStyled from '../../../components/Button';
 import FormControl from '../../../components/Formik/FormControl';
 import { toastSuccess, toastError } from '../../../components/ToastNotification';
 import authApi from '../../../utils/api/authApi';
+import { SchemaResetForm } from '../schema/SchemaResetForm';
 
 import Stack from 'react-bootstrap/Stack';
 
@@ -35,7 +36,7 @@ const ResetForm = () => {
     return (
         <>
             <Formik
-                // validationSchema={SchemaRegister}
+                validationSchema={SchemaResetForm}
                 onSubmit={onSubmit}
                 initialValues={{
                     password: '',
