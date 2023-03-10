@@ -27,7 +27,7 @@ const EditAccount = () => {
         <div>
             <BackgroundUser url={Placeholder} className="position-relative mb-5">
                 <ALignAvatar>
-                    {ava && !data?.data.data.avt ? (
+                    {!ava && data?.data.data.avt === null ? (
                         <AvaUnknown className="rounded-circle position-absolute top-100 start-50 translate-middle">
                             <i className="bi bi-camera"></i>
                         </AvaUnknown>

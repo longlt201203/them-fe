@@ -5,11 +5,9 @@ export const SchemaEditAccount = Yup.object().shape({
         .required('Phonenumber cannot be empty')
         .matches(/^(01|03|05|07|08|09)+([0-9]{8})\b/, 'Your phone does not right'),
     fname: Yup.string()
-        .min(6, 'Username must be at least 6 characters.')
         .max(30, 'Username must be at most 30 characters.')
         .required('Username is required.'),
     lname: Yup.string()
-        .min(6, 'Username must be at least 6 characters.')
         .max(30, 'Username must be at most 30 characters.')
         .required('Username is required.'),
     zipCode: Yup.string().required(),
