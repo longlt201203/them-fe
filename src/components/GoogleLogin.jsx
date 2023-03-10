@@ -16,7 +16,7 @@ function GoogleSignInButton() {
             console.log(res);
             if (res.data.status === 400) {
                 Localstorage.setItem('credential', response.credential);
-                navigate('/registerInfo');
+                navigate('/registerGoogle');
             } else {
                 Localstorage.setItem('accessToken', res.data.data.access_token);
                 Localstorage.setItem('refreshToken', res.data.data.refresh_token);
