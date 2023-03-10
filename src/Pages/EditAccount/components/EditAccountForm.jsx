@@ -1,10 +1,13 @@
+import { useState } from 'react';
+
 import { Formik } from 'formik';
 import { Stack } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 import ButtonStyled from '../../../components/Button';
 import FormControl from '../../../components/Formik/FormControl';
-import { toastError, toastSuccess } from '../../../components/ToastNotification';
+import ModalComponent from '../../../components/Modal/Modal';
+// import { toastError, toastSuccess } from '../../../components/ToastNotification';
 import authApi from '../../../utils/api/authApi';
 import localFileApi from '../../../utils/api/localFIleApi';
 import userApi from '../../../utils/api/userApi';
@@ -13,7 +16,8 @@ import { FormContainer } from '../styled';
 
 const EditAccountForm = ({ file, data, cover }) => {
     const navigate = useNavigate();
-    console.log(data);
+    const [show, setShow] = useState(false);
+    const [message, setMessage] = useState('');
     const onSubmit = async (value, { setFieldError }) => {
         const postData = value;
         const avtUpload = file ? file[0] : null;
@@ -34,7 +38,15 @@ const EditAccountForm = ({ file, data, cover }) => {
         }
         userApi.updateProfile(postData).then((res) => {
             if (res.data.status === 200) {
-                toastSuccess(res.data.message);
+                setShow(true);
+                setMessage(res.data.message);
+            }
+            if (res.data.status === 400) {
+                setShow(true);
+                setMessage(res.data.message);
+                res.data.err.map((el) => {
+                    setFieldError(el.at, el.message);
+                });
             }
         });
         // const data = {
@@ -59,6 +71,13 @@ const EditAccountForm = ({ file, data, cover }) => {
 
     return (
         <>
+            <ModalComponent
+                success={true}
+                show={show}
+                setShow={setShow}
+                body={message}
+                title={'SUCCESS'}
+            />
             <Formik
                 validationSchema={SchemaEditAccount}
                 onSubmit={onSubmit}

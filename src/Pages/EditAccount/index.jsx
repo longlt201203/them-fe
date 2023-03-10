@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 
 import LoginBg from '../../assets/Background/LoginBg.png';
 import Placeholder from '../../assets/Background/placeholder.png';
+import ModalComponent from '../../components/Modal/Modal';
 import localFileApi from '../../utils/api/localFIleApi';
 import EditAccountForm from './components/EditAccountForm';
 import {
@@ -42,11 +43,6 @@ const EditAccount = () => {
         };
         selectedFiles.forEach((file) => reader.readAsDataURL(file));
     }
-    // data?.data.data.cover === null && cover
-    // ? !cover
-    //     ? Placeholder
-    //     : cover
-    // : `${localFileApi.getImg(data?.data.data.cover)}`
 
     return (
         <div>

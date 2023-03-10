@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Formik } from 'formik';
 import { Form } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import ButtonStyled from '../../../components/Button';
 import FormControl from '../../../components/Formik/FormControl';
@@ -12,8 +13,6 @@ import { SchemaRegister } from '../schema';
 
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
-
-// import Form from 'react-bootstrap/Form';
 
 const RegisterForm = () => {
     const [step, setStep] = useState(1);
@@ -64,7 +63,6 @@ const RegisterForm = () => {
                     lname: '',
                     zipCode: '',
                     address: '',
-                    // terms: false,
                 }}
             >
                 {({ handleSubmit, handleChange, handleBlur, values, touched, isValid, errors }) => {
@@ -223,6 +221,12 @@ const RegisterForm = () => {
                                     </Stack>
                                 </>
                             )}
+                            <div className="mb-3 text-center text-white">
+                                Already have an account?
+                                <Link className="me-3 color-link" to="/login">
+                                    Sign In
+                                </Link>
+                            </div>
                         </Form>
                     );
                 }}

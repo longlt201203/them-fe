@@ -24,11 +24,6 @@ const VerificationForm = () => {
             console.log(response);
             if (response.data.status === 400) {
                 console.log(response.data);
-
-                // setErr(response.data.err);
-                // response.data.err.map((el) => {
-                //     setFieldError(el.at, el.message);
-                // });
             }
 
             if (response.data.status === 200) {
