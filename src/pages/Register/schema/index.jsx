@@ -2,13 +2,13 @@ import * as Yup from 'yup';
 
 export const SchemaRegister = Yup.object().shape({
     email: Yup.string()
-        .required()
+        .required('Email cannot be empty')
         .matches(/^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/, 'Your email must match the following formats'),
     phone: Yup.string()
-        .required('Phonenumber cannot be empty')
-        .matches(/^(01|03|05|07|08|09)+([0-9]{8})\b/, 'Your phone does not right'),
+        .required('Phone number cannot be empty')
+        .matches(/^(01|03|05|07|08|09)+([0-9]{8})\b/, 'Incorrect format for phone number'),
     password: Yup.string()
-        .required()
+        .required('Password cannot be empty')
         .min(8, 'Your password is too short.')
         .matches(
             /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
@@ -16,10 +16,10 @@ export const SchemaRegister = Yup.object().shape({
         ),
     confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), ''], 'Passwords must match')
-        .required('Required'),
-    fname: Yup.string().required(),
-    lname: Yup.string().required(),
-    zipCode: Yup.string().required(),
-    address: Yup.string().required(),
+        .required('Confirm password cannot be empty'),
+    fname: Yup.string().required('First name cannot be empty'),
+    lname: Yup.string().required('Last name cannot be empty'),
+    zipCode: Yup.string().required('Zip code cannot be empty'),
+    address: Yup.string().required('Address cannot be empty'),
     // terms: Yup.bool().required().oneOf([true], 'Terms must be accepted'),
 });

@@ -10,7 +10,7 @@ import FormControl from '../../../components/Formik/FormControl';
 import ModalComponent from '../../../components/Modal/Modal';
 import authApi from '../../../utils/api/authApi';
 import { SchemaRegister } from '../schema';
-
+import { toastSuccess } from '../../../components/ToastNotification';
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 
@@ -152,7 +152,7 @@ const RegisterForm = () => {
                                         className="text-white"
                                         control="input"
                                         type="text"
-                                        placeholder="Your phone number"
+                                        placeholder="Your first name"
                                         label="First Name"
                                         controlId="fname"
                                         name="fname"
@@ -166,7 +166,7 @@ const RegisterForm = () => {
                                         className="text-white"
                                         control="input"
                                         type="text"
-                                        placeholder="Your phone number"
+                                        placeholder="Your last name"
                                         label="Last Name"
                                         controlId="lname"
                                         name="lname"
@@ -180,7 +180,7 @@ const RegisterForm = () => {
                                         className="text-white"
                                         control="input"
                                         type="text"
-                                        placeholder="Your phone number"
+                                        placeholder="Zip Code"
                                         label="Zip Code"
                                         controlId="zipCode"
                                         name="zipCode"
@@ -194,7 +194,7 @@ const RegisterForm = () => {
                                         className="text-white"
                                         control="input"
                                         type="text"
-                                        placeholder="Your phone number"
+                                        placeholder="Your address"
                                         label="Address"
                                         controlId="address"
                                         name="address"
@@ -221,8 +221,8 @@ const RegisterForm = () => {
                                     </Stack>
                                 </>
                             )}
-                            <div className="mb-3 text-center text-white">
-                                Already have an account?
+                            <div className="mt-3 text-center text-white">
+                                Already have an account?{' '}
                                 <Link className="me-3 color-link" to="/login">
                                     Sign In
                                 </Link>
