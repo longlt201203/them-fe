@@ -36,9 +36,10 @@ const LoginForm = () => {
         };
         console.log(value);
         authApi.login(formData).then((res) => {
+            console.log(res);
             if (res.data.status === 200) {
                 Localstorage.setItem('accessToken', res.data.data.access_token);
-                Localstorage.setItem('refreshToken', res.data.data.refresh_token);
+                Localstorage.setItem('authTokens', JSON.stringify(res.data.data));
                 navigate('/home');
             }
             if (res.data.status === 400) {

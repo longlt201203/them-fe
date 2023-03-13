@@ -107,6 +107,19 @@ const authApi = {
                 return err;
             });
     },
+    GetRefreshToken: async (refreshToken) => {
+        const endpoint = `/auth/get-access-token/${refreshToken}`;
+        // eslint-disable-next-line no-return-await
+
+        return await get(endpoint, {}, {})
+            .then((res) => {
+                return res;
+            })
+            .catch((err) => {
+                console.log(err);
+                return err;
+            });
+    },
 };
 
 export default authApi;

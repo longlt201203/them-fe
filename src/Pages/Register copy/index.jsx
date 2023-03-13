@@ -31,7 +31,8 @@ const RegisterInfo = () => {
 };
 
 export default RegisterInfo;
-export function loaderInfoGG() {
+export async function loaderInfoGG() {
     const credential = Localstorage.getCredential();
-    return authApi.getInfoFromGG(credential).then((info) => info.data.data);
+    const info = await authApi.getInfoFromGG(credential);
+    return info.data.data;
 }

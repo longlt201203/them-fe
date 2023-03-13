@@ -1,6 +1,6 @@
 import { decodeToken, isExpired } from 'react-jwt';
 
-import { LOCAL_STORAGE_TOKEN } from '../../config';
+import { LOCAL_STORAGE_TOKEN, LOCAL_STORAGE_AUTH_TOKENS } from '../../config';
 import { get } from '../ApiCaller';
 
 class LocalStorageUtils {
@@ -97,12 +97,20 @@ class LocalStorageUtils {
     deleteUser() {
         localStorage.removeItem(LOCAL_STORAGE_TOKEN);
     }
-
+    deleteAccessToken() {
+        localStorage.removeItem(LOCAL_STORAGE_TOKEN);
+    }
+    deleteAuthTokens() {
+        localStorage.removeItem(LOCAL_STORAGE_AUTH_TOKENS);
+    }
     deleteCredential() {
         localStorage.removeItem('credential');
     }
     getToken() {
         return this.getItem(LOCAL_STORAGE_TOKEN);
+    }
+    getAuthTokens() {
+        return this.getItem(LOCAL_STORAGE_AUTH_TOKENS);
     }
     getCredential() {
         return this.getItem('credential');

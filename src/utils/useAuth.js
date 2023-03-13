@@ -40,11 +40,6 @@ const useAuth = () => {
             console.log('checking token');
             setIsLoading(true);
             setCredential(crea);
-            // authApi.getInfoFromGG(credential).then((response) => {
-            //     if (response.data.status === 200) {
-            //         // console.log(response.data.data);
-            //     }
-            // });
             authApi.getUser().then((user) => {
                 const formatUser = {
                     firstName: user?.data.fname,
