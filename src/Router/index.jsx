@@ -33,6 +33,7 @@ const RouterComponent = () => {
         { exact: true, path: 'verification', element: <Verification /> },
         { exact: true, path: 'edit_account', loader: loaderInfoUser, element: <EditAccount /> },
         { exact: true, path: 'registerGoogle', loader: loaderInfoGG, element: <RegisterInfo /> },
+        { exact: true, path: 'profile', loader: loaderInfoGG, element: <UserProfile /> },
 
         { exact: true, path: 'loading', loader: Loading, element: <Loading /> },
         {
