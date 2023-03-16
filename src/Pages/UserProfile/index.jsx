@@ -1,4 +1,10 @@
+import { ProfileStyle } from './style';
+
 const UserProfile = () => {
-    return <div>This is user profile</div>;
+    return (
+        <ProfileStyle>
+            <i className="bi bi-arrow-left-circle-fill"></i>
+        </ProfileStyle>
+    );
 };
 export default UserProfile;
