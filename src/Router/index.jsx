@@ -7,8 +7,10 @@ import HomeChild from '../Pages/HomeChild/HomeChild';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import UserProfile from '../Pages/UserProfile';
+import LayoutComponent from '../components/Layout/index';
 import Loading from '../components/Loading';
 import RequireAuth from '../components/RequiredAuth';
+import CreatePost from '../pages/CreatePost';
 import EditAccount from '../pages/EditAccount';
 import { loaderInfoUser } from '../pages/EditAccount/components/EditAccountForm';
 import ForgotPassword from '../pages/ForgotPassword';
@@ -33,6 +35,15 @@ const RouterComponent = () => {
         { exact: true, path: 'verification', element: <Verification /> },
         { exact: true, path: 'edit_account', loader: loaderInfoUser, element: <EditAccount /> },
         { exact: true, path: 'registerGoogle', loader: loaderInfoGG, element: <RegisterInfo /> },
+        {
+            exact: true,
+            path: 'create_post',
+            element: (
+                <LayoutComponent>
+                    <CreatePost />
+                </LayoutComponent>
+            ),
+        },
         { exact: true, path: 'profile', loader: Loading, element: <UserProfile /> },
 
         { exact: true, path: 'loading', loader: Loading, element: <Loading /> },

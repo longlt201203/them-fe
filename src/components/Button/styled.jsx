@@ -3,6 +3,17 @@ import styled from 'styled-components';
 export const Wrap = styled.span`
     display: flex;
     justify-content: center;
+    .btn-fw {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 9px 12px;
+        gap: 10px;
+        background: #00bafd;
+        border-radius: 42px;
+        color: #ffffff;
+        width: 100%;
+    }
     .btn-base {
         display: flex;
         justify-content: center;
