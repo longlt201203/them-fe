@@ -53,17 +53,25 @@ export const LoginStyle = styled.div`
         width: 36%;
     }
 `;
-export const StyledCol = styled(Col)`
-    width: 100vw;
+export const StyledCol = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
     min-height: 100vh;
     background: #02134f;
-
     .advertise {
-        width: 450px;
-        height: 600px;
+        width: 400px;
+        height: 400px;
         padding: 50px;
-        background: #d4d4d4;
+        background: #d4d44d;
     }
+    @media (max-width: 576px) {
+        display: none;
+    }
+`;
+export const StyledCol2 = styled(Col)`
     @media (max-width: 576px) {
         display: none;
     }

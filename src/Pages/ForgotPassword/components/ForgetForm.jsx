@@ -60,7 +60,6 @@ const ForgetForm = () => {
                                     name="email"
                                     value={values.email}
                                     onChange={handleChange}
-                                    className="text-light"
                                     isInvalid={touched.email && errors.email}
                                     message={errors.email}
                                 />

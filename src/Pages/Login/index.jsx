@@ -2,7 +2,7 @@ import image_left from '../../assets/login/image_left.jpg';
 import LoginBg from '../../assets/login/loginBg.png';
 import ScreenWrapper from '../../components/Wrapper';
 import LoginForm from './LoginForm';
-import { LoginStyle, StyledCol } from './css';
+import { LoginStyle, StyledCol, StyledCol2 } from './css';
 
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -12,12 +12,14 @@ import Stack from 'react-bootstrap/Stack';
 const Login = () => {
     // <img src={LoginBg} alt="Left" className="d-sm-block d-none w-50"></img>
     return (
-        <Stack direction="horizontal">
-            <StyledCol className="d-md-flex align-items-md-center justify-content-md-center">
-                <div className="advertise text-center rounded">
-                    <h3> this is section for advertise</h3>
-                </div>
-            </StyledCol>
+        <div className="d-flex align-items-center justify-content-center">
+            <StyledCol2>
+                <StyledCol>
+                    <div className="advertise text-center rounded">
+                        <h3> this is section for advertise</h3>
+                    </div>
+                </StyledCol>
+            </StyledCol2>
             <Col className="">
                 <LoginStyle className="p-5" url={LoginBg}>
                     <div className="w-md-50">
@@ -31,7 +33,7 @@ const Login = () => {
                     </div>
                 </LoginStyle>
             </Col>
-        </Stack>
+        </div>
     );
 };
 export default Login;
