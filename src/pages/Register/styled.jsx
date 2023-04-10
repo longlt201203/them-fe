@@ -43,8 +43,15 @@ export const BackgroundTmp = styled.div`
     padding: 30px;
     width: 100%;
     min-height: 100vh;
-    background: ${({ url }) => (url ? `url(${url})` : null)};
+    background: ${({ url2 }) => (url2 ? `url(${url2})` : null)};
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+
+    @media (max-width: 576px) {
+        background: ${({ url }) => (url ? `url(${url})` : null)};
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 `;
