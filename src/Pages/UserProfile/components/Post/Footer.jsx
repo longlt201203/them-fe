@@ -2,6 +2,7 @@ import React from 'react';
 
 import Comment from './Comment';
 import Like from './Like';
+import Send from './Send';
 import Share from './Share';
 
 const Footer = () => {
@@ -10,6 +11,7 @@ const Footer = () => {
             <Like />
             <Comment />
             <Share />
+            {/* <Send /> */}
         </div>
     );
 };

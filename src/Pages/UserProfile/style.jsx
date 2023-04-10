@@ -89,4 +89,19 @@ export const ProfileStyle = styled.div`
         backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
         -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
     }
+    .btn-like {
+        color: ${(props) => props.theme.colors.red};
+    }
+    .btn-dislike {
+        color: ${(props) => props.theme.colors.dark};
+    }
+    .border-dashed {
+        border: 1px ${(props) => props.theme.colors.grey} dashed;
+    }
+    .bd {
+        border-color: ${(props) => props.theme.colors.red};
+    }
+    .color-grey {
+        color: ${(props) => props.theme.colors.grey};
+    }
 `;

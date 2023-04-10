@@ -13,7 +13,6 @@ const Header = () => {
     return (
         <div>
             <Cover className="bg-secondary size-cover top-0 img-fluid" />
-
             <div className="px-3">
                 <div className="d-flex justify-content-between ">
                     <div>
@@ -26,6 +25,7 @@ const Header = () => {
                         content="Edit Profile"
                         variant="outline"
                         className="br-1 pr-1 color-secondary fw-bold border-primary-1 btn-hover mt-2"
+                        href="edit"
                     />
                 </div>
                 <div className="mt-3">

@@ -1,10 +1,12 @@
 import React from 'react';
 
-const GoBack = () => {
+import { Button } from 'react-bootstrap';
+
+const GoBack = ({ href }) => {
     return (
-        <button className="border-0 bg-unset bi-hover">
+        <Button className="border-0 bg-unset bi-hover" href={href}>
             <i className="bi bi-arrow-left-circle-fill fs-2 color-primary"></i>
-        </button>
+        </Button>
     );
 };
 

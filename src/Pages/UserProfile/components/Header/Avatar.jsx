@@ -7,8 +7,14 @@ const avatarName = ({ user }) => {
     name = fname + lname;
     return name;
 };
-const Avatar = ({ user, className }) => {
-    return <div className={className}>{avatarName({ user })}</div>;
+const Avatar = ({ user, className, icon, children }) => {
+    return (
+        <div className={className}>
+            {user == null ? null : avatarName({ user })}
+            {children}
+            <i className={icon}></i>
+        </div>
+    );
 };
 
 export default Avatar;

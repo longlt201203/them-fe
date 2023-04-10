@@ -7,5 +7,7 @@ export const themes = {
         color_third: '#ADB5BD',
         secondary: 'rgba(255, 255, 255, 0.2)',
         color_primary: '#1e3982',
+        red: 'red',
+        grey: '#B7B7B7',
     },
 };

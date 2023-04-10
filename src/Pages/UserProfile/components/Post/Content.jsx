@@ -14,23 +14,23 @@ const Content = () => {
     return (
         <div className="px-3 my-2">
             <div>
-                <span className="text-secondary fw-light-bold">Tôi: </span>
+                <span className="text-secondary fw-light-bold">I: </span>
                 <span>{contents.cause}</span>
             </div>
             <div>
-                <span className="text-secondary fw-light-bold">Đang thèm: </span>
+                <span className="text-secondary fw-light-bold">Craving: </span>
                 <div>{contents.food}</div>
             </div>
             <div>
-                <span className="text-secondary fw-light-bold">Cần: </span>
+                <span className="text-secondary fw-light-bold">Needing: </span>
                 <span>{contents.time}</span>
             </div>
             <div>
-                <span className="text-secondary fw-light-bold">Tôi ở: </span>
+                <span className="text-secondary fw-light-bold">I live: </span>
                 <span>{contents.where}</span>
             </div>
             <div>
-                <span className="text-secondary fw-light-bold">Tôi có thể trả: </span>
+                <span className="text-secondary fw-light-bold">I can pay: </span>
                 <span>{contents.pay}</span>
             </div>
             <img src={BgImage} className="post-img-size my-2"></img>

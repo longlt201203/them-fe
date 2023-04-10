@@ -17,7 +17,7 @@ const UserProfile = () => {
                 <Tracking />
                 <LineBreak />
                 <Post />
-                <AddBtn />
+                <AddBtn href="/create-post" />
             </Col>
         </ProfileStyle>
     );

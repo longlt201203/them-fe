@@ -7,6 +7,7 @@ import HomeChild from '../Pages/HomeChild/HomeChild';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import UserProfile from '../Pages/UserProfile';
+import EditProfile from '../Pages/UserProfile/components/EditProfile';
 import LayoutComponent from '../components/Layout/index';
 import Loading from '../components/Loading';
 import RequireAuth from '../components/RequiredAuth';
@@ -63,7 +64,8 @@ const RouterComponent = () => {
         },
         {
             exact: true,
-            element: <RequireAuth allowedRoles={ROLES.User} />,
+            // element: <RequireAuth allowedRoles={ROLES.User} />,
+
             children: [
                 {
                     exact: true,
@@ -73,6 +75,20 @@ const RouterComponent = () => {
                 },
             ],
         },
+        {
+            exact: true,
+            // element: <RequireAuth allowedRoles={ROLES.User} />,
+
+            children: [
+                {
+                    exact: true,
+                    path: 'edit',
+                    loader: Loading,
+                    element: <EditProfile />,
+                },
+            ],
+        },
+
         {
             exact: true,
             element: <RequireAuth allowedRoles={ROLES.Admin} />,

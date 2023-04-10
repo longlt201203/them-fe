@@ -9,6 +9,7 @@ const Comment = () => {
     return (
         <div>
             <Action numbers={comments.numbers} className="bi bi-chat" />
+            {/* <div className="modal-dialog modal-dialog-centered"></div> */}
         </div>
     );
 };
