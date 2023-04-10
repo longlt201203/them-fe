@@ -1,8 +1,11 @@
 import { Form } from 'react-router-dom';
 import styled from 'styled-components';
 
+import PcVer2 from '../../assets/ForgotPassword/PcVer2.png';
 import ForgetBg from '../../assets/ForgotPassword/forgetBg.png';
+import Wrap from '../../assets/Wrap.png';
 import ScreenWrapper from '../../components/Wrapper';
+import { BoxWrapper } from '../ForgotPassword';
 import { BackgroundTmp, TitleStyled, SubtitleStyled } from '../Register/styled';
 import ResetForm from './component/ResetForm';
 
@@ -10,15 +13,17 @@ import Stack from 'react-bootstrap/Stack';
 
 const ResetPassword = () => {
     return (
-        <BackgroundTmp url={ForgetBg}>
+        <BackgroundTmp url={ForgetBg} url2={PcVer2}>
             <ScreenWrapper>
-                <Stack gap={2}>
-                    <Stack className="text-center" gap={2}>
-                        <TitleStyled className="">Thèm</TitleStyled>
-                        <SubtitleStyled>Reset password</SubtitleStyled>
+                <BoxWrapper url={Wrap}>
+                    <Stack gap={2}>
+                        <Stack className="text-center" gap={2}>
+                            <TitleStyled className="">Thèm</TitleStyled>
+                            <SubtitleStyled>Reset password</SubtitleStyled>
+                        </Stack>
+                        <ResetForm />
                     </Stack>
-                    <ResetForm />
-                </Stack>
+                </BoxWrapper>
             </ScreenWrapper>
         </BackgroundTmp>
     );

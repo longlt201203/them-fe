@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 const ScreenWrapper = ({ children }) => {
     return (
         <Container>
-            <Row>
+            <Row className="justify-content-center">
                 <Col xs={12} md={8} lg={6}>
                     {children}
                 </Col>
