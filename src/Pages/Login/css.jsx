@@ -1,12 +1,19 @@
 import styled from 'styled-components';
 
+import Col from 'react-bootstrap/Col';
+
 export const LoginStyle = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     min-height: 100vh;
     background: ${({ url }) => (url ? `url(${url})` : null)};
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top center;
+    /* padding: 5rem 10rem; */
     .form-control {
         padding: 0.5em;
         width: 100%;
@@ -44,5 +51,20 @@ export const LoginStyle = styled.div`
     }
     .line-custom {
         width: 36%;
+    }
+`;
+export const StyledCol = styled(Col)`
+    width: 100vw;
+    min-height: 100vh;
+    background: #02134f;
+
+    .advertise {
+        width: 450px;
+        height: 600px;
+        padding: 50px;
+        background: #d4d4d4;
+    }
+    @media (max-width: 576px) {
+        display: none;
     }
 `;
