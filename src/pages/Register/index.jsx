@@ -3,6 +3,7 @@ import { useState } from 'react';
 import LoginBg from '../../assets/Background/LoginBg.png';
 import PcVer2 from '../../assets/ForgotPassword/PcVer2.png';
 import Wrap from '../../assets/Wrap.png';
+import Wrapp2 from '../../assets/wrapper2.png';
 import ScreenWrapper from '../../components/Wrapper';
 import { BoxWrapper } from '../ForgotPassword';
 import RegisterForm from './component/RegisterForm';
@@ -15,7 +16,7 @@ const Register = () => {
         <BackgroundTmp url={LoginBg} url2={PcVer2}>
             <ScreenWrapper>
                 {/* Box */}
-                <BoxWrapper url={Wrap}>
+                <BoxWrapper url={Wrapp2}>
                     <Stack>
                         <div className="text-center">
                             {/* Register title */}

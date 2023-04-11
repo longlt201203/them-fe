@@ -56,7 +56,7 @@ const LoginForm = () => {
         >
             {({ handleSubmit, handleChange, handleBlur, values, touched, isValid, errors }) => (
                 <Form noValidate onSubmit={handleSubmit}>
-                    <Form.Group className="was-validated mb-3 text-light" controlId="useraccount">
+                    <Form.Group className="was-validated mb-2 text-light" controlId="useraccount">
                         <Form.Label className="text-light">Email or Phone Number</Form.Label>
                         <Form.Control
                             type="text"
@@ -70,7 +70,7 @@ const LoginForm = () => {
                         />
                         <Form.Control.Feedback type="invalid">{errors.user}</Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group className="was-validated mb-3" controlId="password">
+                    <Form.Group className="was-validated mb-2" controlId="password">
                         <Form.Label className="text-light">Password</Form.Label>
                         <Form.Control
                             type="password"
@@ -91,7 +91,7 @@ const LoginForm = () => {
                         {errMsg}
                     </p>
                     <Form.Group
-                        className="mb-3 d-flex justify-content-end"
+                        className="mb-2 d-flex justify-content-end"
                         controlId="formBasicCheckbox"
                     >
                         <Form.Check
@@ -102,20 +102,20 @@ const LoginForm = () => {
                             onChange={() => setChecked(!checked)}
                         />
                     </Form.Group>
-                    <Button className="w-100 mt-2 mb-3 text-light" variant="login" type="Login">
+                    <Button className="w-100 mt-2 mb-2 text-light" variant="login" type="Login">
                         Login
                     </Button>
                     <LineBreak />
                     <div className="d-flex justify-content-center justify-content-center mb-3">
                         <GoogleSignInButton />
                     </div>
-                    <div className="mb-3 text-center text-light">
+                    <div className="mb-2 text-center text-light">
                         Forget password?{' '}
                         <Link className="color-link" to="/forgotPassword">
                             Forgot password
                         </Link>
                     </div>
-                    <div className="mb-3 text-center text-light">
+                    <div className="mb-2 text-center text-light">
                         Don't have an account?{' '}
                         <Link className="color-link" to="/register">
                             Create now

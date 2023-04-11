@@ -1,3 +1,4 @@
+import { Button, Form, FormGroup, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 
 import Col from 'react-bootstrap/Col';
@@ -59,7 +60,7 @@ export const StyledCol = styled(Col)`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    min-height: 100vh;
+    min-height: 80vh;
     background: #02134f;
     padding: 0;
     .advertise {
@@ -77,3 +78,9 @@ export const StyledCol2 = styled(Col)`
         display: none;
     }
 `;
+// export const FormStyled = styled(Form)`
+//   @media (max-width: 576px) {
+//         display: none;
+//     }
+
+// `;

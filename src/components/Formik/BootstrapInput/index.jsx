@@ -14,7 +14,7 @@ export const BootstrapInput = ({
 }) => {
     return (
         <>
-            <Form.Group className="mb-3" controlId={controlId}>
+            <Form.Group className="mb-2" controlId={controlId}>
                 {label && <Form.Label className={className}>{label}</Form.Label>}
                 <Form.Control
                     as={Field}
