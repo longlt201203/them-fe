@@ -1,6 +1,7 @@
 import image_left from '../../assets/login/image_left.jpg';
 import LoginBg from '../../assets/login/loginBg.png';
 import ScreenWrapper from '../../components/Wrapper';
+import { SubtitleStyled, TitleStyled } from '../Register/styled';
 import LoginForm from './LoginForm';
 import { LoginStyle, StyledCol, StyledCol2 } from './css';
 
@@ -26,8 +27,8 @@ const Login = () => {
                         <div className="w-md-50">
                             <Stack>
                                 <div className="text-center text-light">
-                                    <h1 className="login-logo">Thèm</h1>
-                                    <span className="login-title mb-3 fs-1 text-light">Login</span>
+                                    <TitleStyled>Thèm</TitleStyled>
+                                    <SubtitleStyled>Login</SubtitleStyled>
                                 </div>
                                 <LoginForm />
                             </Stack>

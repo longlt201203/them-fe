@@ -69,7 +69,7 @@ export const StyledCol = styled(Col)`
         padding: 50px;
         background: #d4d44d;
     }
-    @media (max-width: 676px) {
+    @media (max-width: 735px) {
         display: none;
     }
 `;

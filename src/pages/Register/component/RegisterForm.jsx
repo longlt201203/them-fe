@@ -222,9 +222,9 @@ const RegisterForm = () => {
                                     </Stack>
                                 </>
                             )}
-                            <div className="mt-2 text-center text-white">
+                            <div className="mt-1 text-center text-white">
                                 Already have an account?{' '}
-                                <Link className="me-3 color-link" to="/login">
+                                <Link className="color-link" to="/login">
                                     Sign In
                                 </Link>
                             </div>
