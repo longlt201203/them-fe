@@ -15,7 +15,7 @@ export default function Home() {
         await authApi.getUser().then((user) => {
             console.log(user);
             if (user.data.status === 200) {
-                authApi.SendEmail(user.data.data.email).then((response) => {
+                authApi.SendEmail({ email: user.data.data.email }).then((response) => {
                     console.log(response);
                     if (response.data.status === 400) {
                         console.log('error');
