@@ -18,6 +18,7 @@ import RegisterInfo from '../pages/Register copy';
 import { loaderInfoGG } from '../pages/Register copy';
 import ResetPassword from '../pages/ResetPassword';
 import Verification from '../pages/VerficationPage';
+import VerificationEmail from '../pages/VerficationPage copy';
 import RoleAccess from './RoleAccess';
 
 const ROLES = {
@@ -33,6 +34,8 @@ const RouterComponent = () => {
         { exact: true, path: 'forgotPassword', element: <ForgotPassword /> },
         { exact: true, path: 'resetPassword', element: <ResetPassword /> },
         { exact: true, path: 'verification', element: <Verification /> },
+        { exact: true, path: 'verify_email', element: <VerificationEmail /> },
+
         { exact: true, path: 'edit_account', loader: loaderInfoUser, element: <EditAccount /> },
         { exact: true, path: 'registerGoogle', loader: loaderInfoGG, element: <RegisterInfo /> },
         {

@@ -121,6 +121,32 @@ const authApi = {
                 return err;
             });
     },
+    VerifyEmail: async () => {
+        const endpoint = `/auth/request-verifying-email`;
+        // eslint-disable-next-line no-return-await
+
+        return await get(endpoint, {}, authHeader())
+            .then((res) => {
+                return res;
+            })
+            .catch((err) => {
+                console.log(err);
+                return err;
+            });
+    },
+    CodeVerifyEmail: async (code) => {
+        const endpoint = `/auth/verify-email/${code.code}`;
+        // eslint-disable-next-line no-return-await
+
+        return await get(endpoint, {}, authHeader())
+            .then((res) => {
+                return res;
+            })
+            .catch((err) => {
+                console.log(err);
+                return err;
+            });
+    },
 };
 
 export default authApi;

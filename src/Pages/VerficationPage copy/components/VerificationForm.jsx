@@ -36,10 +36,9 @@ const VerificationForm = () => {
         console.log(value);
 
         const formData = {
-            email: location.state.email,
             code: value.code,
         };
-        authApi.CheckCode(formData).then((response) => {
+        authApi.CodeVerifyEmail(formData).then((response) => {
             console.log(response);
             if (response.data.status === 400) {
                 setShow(true);
@@ -51,7 +50,7 @@ const VerificationForm = () => {
             }
 
             if (response.data.status === 200) {
-                navigate('/resetPassword', { state: location.state.email });
+                navigate('/');
                 toastSuccess(response.data.message);
             }
         });

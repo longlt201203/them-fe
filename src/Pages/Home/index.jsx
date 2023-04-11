@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import ButtonStyled from '../../components/Button';
+import { toastError } from '../../components/ToastNotification';
 import useAuth from '../../hooks/useAuth';
 import Localstorage from '../../utils/Localstorage';
 import authApi from '../../utils/api/authApi';
@@ -40,6 +41,16 @@ export default function Home() {
         //     });
         // }
     };
+
+    const VerifyEmail = async () => {
+        let res = await authApi.VerifyEmail();
+        console.log(res);
+        if (res.data.status === 200) {
+            navigate('/verify_email', { state: res.data.data });
+        } else {
+            toastError(res.data.err);
+        }
+    };
     return (
         <>
             <div>This is Home Page</div>
@@ -52,7 +63,7 @@ export default function Home() {
             <ButtonStyled className="mb-3" onClick={RequestChangePassword}>
                 Change Password
             </ButtonStyled>
-            <ButtonStyled className="mb-3" onClick={() => navigate('/verify_email')}>
+            <ButtonStyled className="mb-3" onClick={VerifyEmail}>
                 Verify email
             </ButtonStyled>
             <ButtonStyled
