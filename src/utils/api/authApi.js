@@ -63,6 +63,7 @@ const authApi = {
     },
 
     SendEmail: async (data) => {
+        console.log(data);
         const endpoint = `/auth/request-reset-password`;
         // eslint-disable-next-line no-return-await
 

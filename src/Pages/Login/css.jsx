@@ -53,7 +53,7 @@ export const LoginStyle = styled.div`
         width: 36%;
     }
 `;
-export const StyledCol = styled.div`
+export const StyledCol = styled(Col)`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,6 +61,7 @@ export const StyledCol = styled.div`
     width: 100%;
     min-height: 100vh;
     background: #02134f;
+    padding: 0;
     .advertise {
         width: 400px;
         height: 400px;

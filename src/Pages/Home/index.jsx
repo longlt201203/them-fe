@@ -11,28 +11,34 @@ export default function Home() {
 
     console.log(user);
     const RequestChangePassword = async () => {
-        let user2 = await authApi.getUser().then((user) => {
-            return user?.data;
+        await authApi.getUser().then((user) => {
+            console.log(user);
+            if (user.data.status === 200) {
+                authApi.SendEmail(user.data.data.email).then((response) => {
+                    console.log(response);
+                    if (response.data.status === 400) {
+                        console.log('error');
+                    }
+                    if (response.data.status === 200) {
+                        console.log(response.data.message);
+                        navigate('/verification', { state: user.data.data.email });
+                    }
+                });
+            }
         });
 
-        if (user2.status === 200) {
-            await authApi.SendEmail(user2.data.email).then((response) => {
-                console.log(response);
-                if (response.data.status === 400) {
-                    console.log('error');
-                    // setShow(true);
-                    // setMessage(response.data.err);
-                    // setErr(response.data.err);
-                    // response.data.err.map((el) => {
-                    //     setFieldError(el.at, el.message);
-                    // });
-                }
-                if (response.data.status === 200) {
-                    console.log(response.data.message);
-                    navigate('/verification', { state: user2.data.email });
-                }
-            });
-        }
+        // if (user2.status === 200) {
+        //     await authApi.SendEmail(user2.data.email).then((response) => {
+        //         console.log(response);
+        //         if (response.data.status === 400) {
+        //             console.log('error');
+        //         }
+        //         if (response.data.status === 200) {
+        //             console.log(response.data.message);
+        //             navigate('/verification', { state: user2.data.email });
+        //         }
+        //     });
+        // }
     };
     return (
         <>
