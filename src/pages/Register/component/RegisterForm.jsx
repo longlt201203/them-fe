@@ -8,9 +8,10 @@ import { Link } from 'react-router-dom';
 import ButtonStyled from '../../../components/Button';
 import FormControl from '../../../components/Formik/FormControl';
 import ModalComponent from '../../../components/Modal/Modal';
+import { toastSuccess } from '../../../components/ToastNotification';
 import authApi from '../../../utils/api/authApi';
 import { SchemaRegister } from '../schema';
-import { toastSuccess } from '../../../components/ToastNotification';
+
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 
@@ -221,7 +222,7 @@ const RegisterForm = () => {
                                     </Stack>
                                 </>
                             )}
-                            <div className="mt-3 text-center text-white">
+                            <div className="mt-2 text-center text-white">
                                 Already have an account?{' '}
                                 <Link className="me-3 color-link" to="/login">
                                     Sign In
