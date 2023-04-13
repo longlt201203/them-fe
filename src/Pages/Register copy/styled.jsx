@@ -8,12 +8,13 @@ export const TitleStyled = styled.div`
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 800;
-    font-size: 48px;
-    line-height: 59px;
+    font-size: 36px;
     /* identical to box height */
 
+    @media (max-width: 576px) {
+        font-size: 48px;
+    }
     letter-spacing: 2px;
-
     /* Color template/Color text */
 
     color: #00bafd;
@@ -24,10 +25,12 @@ export const SubtitleStyled = styled.div`
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 500;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 26px;
+    /* line-height: 40px; */
     /* identical to box height */
-
+    @media (max-width: 576px) {
+        font-size: 32px;
+    }
     text-align: center;
 
     /* Color template/Text */
