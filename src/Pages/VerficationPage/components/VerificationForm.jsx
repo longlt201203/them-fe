@@ -17,6 +17,7 @@ import Stack from 'react-bootstrap/Stack';
 const VerificationForm = () => {
     const navigate = useNavigate();
     const location = useLocation();
+
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState('');
     const Resend = () => {
@@ -33,12 +34,11 @@ const VerificationForm = () => {
         });
     };
     const onSubmit = (value, { setFieldError }) => {
-        console.log(value);
-
         const formData = {
             email: location.state.email,
             code: value.code,
         };
+        console.log(formData);
         authApi.CheckCode(formData).then((response) => {
             console.log(response);
             if (response.data.status === 400) {

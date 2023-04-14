@@ -22,7 +22,7 @@ export default function Home() {
                     }
                     if (response.data.status === 200) {
                         console.log(response.data.message);
-                        navigate('/verification', { state: user.data.data.email });
+                        navigate('/verification', { state: { email: user.data.data.email } });
                     }
                 });
             }
