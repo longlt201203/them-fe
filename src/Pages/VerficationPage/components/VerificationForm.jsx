@@ -74,6 +74,7 @@ const VerificationForm = () => {
                                 {/* Email*/}
                                 <FormControl
                                     control="input"
+                                    className="text-light"
                                     type="text"
                                     placeholder="Please enter your code..."
                                     label="Code"
@@ -86,7 +87,8 @@ const VerificationForm = () => {
                                 />
                                 <Stack
                                     direction="horizontal"
-                                    className="d-flex justify-content-between"
+                                    className="d-flex justify-content-between mt-3"
+                                    gap={2}
                                 >
                                     <ButtonStyled
                                         buttonType="inverted"

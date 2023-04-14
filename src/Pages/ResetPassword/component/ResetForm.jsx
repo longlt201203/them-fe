@@ -76,7 +76,8 @@ const ResetForm = () => {
                                 />
                                 <Stack
                                     direction="horizontal"
-                                    className="d-flex justify-content-between"
+                                    className="d-flex justify-content-between mt-3"
+                                    gap={3}
                                 >
                                     <ButtonStyled
                                         buttonType="inverted"

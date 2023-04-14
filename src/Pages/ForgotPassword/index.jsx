@@ -49,7 +49,7 @@ export const BoxWrapper = styled.div`
         position: absolute;
         top: 50%;
         left: 50%;
-        padding: 10px 60px;
+        padding: 20px 60px;
         transform: translate(-50%, -50%);
         background: ${({ url }) => (url ? `url(${url})` : null)};
         background-size: contain;
