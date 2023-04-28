@@ -14,6 +14,7 @@ import {
     ALignAvatar,
     ALignButtonEdit,
     CoverUpload,
+    WrapperEditAccount,
 } from './styled';
 
 const EditAccount = () => {
@@ -45,7 +46,7 @@ const EditAccount = () => {
     }
 
     return (
-        <div>
+        <WrapperEditAccount>
             <BackgroundUser
                 url={
                     data?.data.data.cover !== null && cover === undefined
@@ -90,7 +91,7 @@ const EditAccount = () => {
                 </ALignButtonEdit>
             </BackgroundUser>
             <EditAccountForm file={files} cover={files2} data={data?.data.data} />
-        </div>
+        </WrapperEditAccount>
     );
 };
 

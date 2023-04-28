@@ -49,3 +49,8 @@ export const ALignButtonEdit = styled.span`
     top: 15px;
     left: 263px;
 `;
+export const WrapperEditAccount = styled.div`
+    @media all and (min-width: 500px) {
+        max-width: 500px;
+    }
+`;
