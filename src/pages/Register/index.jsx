@@ -1,8 +1,7 @@
-import { useState } from 'react';
-
+// import { useState } from 'react';
 import LoginBg from '../../assets/Background/LoginBg.png';
 import PcVer2 from '../../assets/ForgotPassword/PcVer2.png';
-import Wrap from '../../assets/Wrap.png';
+// import Wrap from '../../assets/Wrap.png';
 import Wrapp2 from '../../assets/wrapper2.png';
 import ScreenWrapper from '../../components/Wrapper';
 import { BoxWrapper } from '../ForgotPassword';

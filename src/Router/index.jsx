@@ -1,24 +1,24 @@
 import { Navigate, createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import ErrorPage from '../Pages/404Page';
-import Admin from '../Pages/AdminPage';
-import Home from '../Pages/Home';
-import HomeChild from '../Pages/HomeChild/HomeChild';
-import Login from '../Pages/Login';
-import Register from '../Pages/Register';
-import UserProfile from '../Pages/UserProfile';
 import LayoutComponent from '../components/Layout/index';
 import Loading from '../components/Loading';
 import RequireAuth from '../components/RequiredAuth';
+import ErrorPage from '../pages/404Page';
+import Admin from '../pages/AdminPage';
 import CreatePost from '../pages/CreatePost';
 import EditAccount from '../pages/EditAccount';
 import { loaderInfoUser } from '../pages/EditAccount/components/EditAccountForm';
 import ForgotPassword from '../pages/ForgotPassword';
+import Home from '../pages/Home';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 import RegisterInfo from '../pages/Register copy';
 import { loaderInfoGG } from '../pages/Register copy';
 import ResetPassword from '../pages/ResetPassword';
+import UserProfile from '../pages/UserProfile';
 import Verification from '../pages/VerficationPage';
 import VerificationEmail from '../pages/VerficationPage copy';
+import HomeChild from '..pages/HomeChild/HomeChild';
 import RoleAccess from './RoleAccess';
 
 const ROLES = {
