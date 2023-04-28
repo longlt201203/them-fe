@@ -3,23 +3,24 @@ import { Navigate, createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LayoutComponent from '../components/Layout/index';
 import Loading from '../components/Loading';
 import RequireAuth from '../components/RequiredAuth';
-import ErrorPage from '../pages/404Page';
-import Admin from '../pages/AdminPage';
-import CreatePost from '../pages/CreatePost';
-import EditAccount from '../pages/EditAccount';
+import ErrorPage from '../pages/404Page/index';
+import Admin from '../pages/AdminPage/index';
+import CreatePost from '../pages/CreatePost/index';
 import { loaderInfoUser } from '../pages/EditAccount/components/EditAccountForm';
-import ForgotPassword from '../pages/ForgotPassword';
-import Home from '../pages/Home';
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import RegisterInfo from '../pages/Register copy';
-import { loaderInfoGG } from '../pages/Register copy';
-import ResetPassword from '../pages/ResetPassword';
-import UserProfile from '../pages/UserProfile';
-import Verification from '../pages/VerficationPage';
-import VerificationEmail from '../pages/VerficationPage copy';
+import EditAccount from '../pages/EditAccount/index';
+import ForgotPassword from '../pages/ForgotPassword/index';
+import Home from '../pages/Home/index';
+import Login from '../pages/Login/index';
+import RegisterInfo from '../pages/Register copy/index';
+import { loaderInfoGG } from '../pages/Register copy/index';
+import Register from '../pages/Register/index';
+import ResetPassword from '../pages/ResetPassword/index';
+import UserProfile from '../pages/UserProfile/index';
+import VerificationEmail from '../pages/VerficationPage copy/index';
+import Verification from '../pages/VerficationPage/index';
 import HomeChild from '..pages/HomeChild/HomeChild';
-import RoleAccess from './RoleAccess';
+
+// import RoleAccess from './RoleAccess';
 
 const ROLES = {
     User: 2001,
