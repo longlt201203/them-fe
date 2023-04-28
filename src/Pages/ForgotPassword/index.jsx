@@ -1,12 +1,12 @@
 import { Form } from 'react-router-dom';
 import styled from 'styled-components';
 
-import PcForgot from '../../assets/ForgotPassword/PcForgot.png';
+// import PcForgot from '../../assets/ForgotPassword/PcForgot.png';
 import PcVer2 from '../../assets/ForgotPassword/PcVer2.png';
 import ForgetBg from '../../assets/ForgotPassword/forgetBg.png';
 import Wrap from '../../assets/Wrap.png';
 import ScreenWrapper from '../../components/Wrapper';
-import { BackgroundTmp, TitleStyled, SubtitleStyled } from '../Register/styled';
+import { BackgroundTmp, TitleStyled, SubtitleStyled } from '../Register/style2d';
 import ForgetForm from './components/ForgetForm';
 
 import Stack from 'react-bootstrap/Stack';

@@ -4,9 +4,9 @@ import PcVer2 from '../../assets/ForgotPassword/PcVer2.png';
 // import Wrap from '../../assets/Wrap.png';
 import Wrapp2 from '../../assets/wrapper2.png';
 import ScreenWrapper from '../../components/Wrapper';
-import { BoxWrapper } from '../ForgotPassword';
+import { BoxWrapper } from '../ForgotPassword/index';
 import RegisterForm from './component/RegisterForm';
-import { TitleStyled, SubtitleStyled, BackgroundTmp } from './styled';
+import { TitleStyled, SubtitleStyled, BackgroundTmp } from './style2d';
 
 import Stack from 'react-bootstrap/Stack';
 

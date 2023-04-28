@@ -6,7 +6,7 @@ import ForgetBg from '../../assets/ForgotPassword/forgetBg.png';
 import Wrap from '../../assets/Wrap.png';
 import ScreenWrapper from '../../components/Wrapper';
 import { BoxWrapper } from '../ForgotPassword';
-import { BackgroundTmp, TitleStyled, SubtitleStyled } from '../Register/styled';
+import { BackgroundTmp, TitleStyled, SubtitleStyled } from '../Register/style2d';
 import ResetForm from './component/ResetForm';
 
 import Stack from 'react-bootstrap/Stack';

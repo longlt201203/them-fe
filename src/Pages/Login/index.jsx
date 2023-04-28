@@ -1,7 +1,7 @@
 import image_left from '../../assets/login/image_left.jpg';
 import LoginBg from '../../assets/login/loginBg.png';
 import ScreenWrapper from '../../components/Wrapper';
-import { SubtitleStyled, TitleStyled } from '../Register/styled';
+import { SubtitleStyled, TitleStyled } from '../Register/style2d';
 import LoginForm from './LoginForm';
 import { LoginStyle, StyledCol, StyledCol2 } from './css';
 
