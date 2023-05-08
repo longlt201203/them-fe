@@ -10,6 +10,7 @@ import { loaderInfoUser } from '../pages/EditAccount/components/EditAccountForm'
 import EditAccount from '../pages/EditAccount/index';
 import ForgotPassword from '../pages/ForgotPassword/index';
 import Home from '../pages/Home/index';
+import HomeChild from '../pages/HomeChild/HomeChild';
 import Login from '../pages/Login/index';
 import RegisterInfo from '../pages/Register copy/index';
 import { loaderInfoGG } from '../pages/Register copy/index';
@@ -18,7 +19,6 @@ import ResetPassword from '../pages/ResetPassword/index';
 import UserProfile from '../pages/UserProfile/index';
 import VerificationEmail from '../pages/VerficationPage copy/index';
 import Verification from '../pages/VerficationPage/index';
-import HomeChild from '..pages/HomeChild/HomeChild';
 
 // import RoleAccess from './RoleAccess';
 

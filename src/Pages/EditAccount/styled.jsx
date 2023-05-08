@@ -1,6 +1,10 @@
 import { Form } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+
 export const BackgroundUser = styled.div`
     padding: 70px;
     background: ${({ url }) => (url ? `url(${url})` : null)};
@@ -44,13 +48,19 @@ export const ALignAvatar = styled.div`
     position: relative;
     top: 70px;
 `;
-export const ALignButtonEdit = styled.span`
+export const ALignButtonEdit = styled.div`
     position: relative;
     top: 15px;
     left: 263px;
 `;
 export const WrapperEditAccount = styled.div`
-    @media all and (min-width: 500px) {
+    /* @media all and (min-width: 500px) {
         max-width: 500px;
+    } */
+`;
+
+export const ColStyled = styled(Col)`
+    @media all and (max-width: 600px) {
+        display: none;
     }
 `;
